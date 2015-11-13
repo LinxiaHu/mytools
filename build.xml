@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     2014年5月25日 上午12:40:18                                                        
+
+     project    
+     description
+                   
+     Chunyun                                                                
+     ====================================================================== -->
+<project name="mytools" default="packageProcess" basedir=".">
+	<path id="lib_classpath">
+	        <fileset dir="exr">
+	            <include name="*.jar"/>
+	        </fileset>
+	</path>
+	<property name="compile" value="compile"></property>
+    <property name="dist" value="dist"></property>
+	<property name="src" value="src"></property>
+    <target name="init">
+    	<mkdir dir="${compile}"/>
+    	<mkdir dir="${dist}"/>
+    	<mkdir dir="${compile}\com\hd\mytools"/>
+    </target>
+	
+	<target name="compileProcess" depends="init">
+		<javac srcdir="${src}" destdir="${compile}" includeantruntime="false">
+			 <classpath refid="lib_classpath"/>
+		</javac>
+	</target>
+	
+	
+	
+	<target name="packageProcess" depends="compileProcess">
+	
+		<jar destfile="${dist}/run.jar" basedir="${compile}">
+			<manifest>
+						<attribute name="Build-By" value="${user.name}"/>
+						<attribute name="Main-Class" value="com.hd.mytools.Init"/>
+			</manifest>
+		</jar>
+	
+	
+	
+	</target>
+	
+
+</project>
