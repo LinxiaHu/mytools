@@ -4,9 +4,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
 
-import javax.rmi.CORBA.Tie;
 import javax.swing.UIManager;
 
 /**
